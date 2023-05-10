@@ -33,5 +33,5 @@ zsh
 exa
 go
 python
-pip
+python-pip
 obsidian
