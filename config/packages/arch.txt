@@ -37,3 +37,4 @@ python-pip
 obsidian
 make
 shell-color-scripts
+wifite
