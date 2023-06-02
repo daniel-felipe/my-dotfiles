@@ -9,7 +9,7 @@ SCRIPT_ROOT=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 echo "[${green}+${none}] Copying dotfiles"
 
 # startship
-[ ! -d "$HOME/.config/startship/" ] && mkdir "$HOME/.config/starship"
+[ ! -d "$HOME/.config/starship/" ] && mkdir "$HOME/.config/starship"
 cp "$SCRIPT_ROOT/config/starship/starship.toml" "$HOME/.config/starship/starship.toml" 
 
 # zsh
