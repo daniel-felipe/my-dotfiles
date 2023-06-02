@@ -10,7 +10,7 @@ echo "[${green}+${none}] Copying dotfiles"
 
 # startship
 [ ! -d "$HOME/.config/startship/" ] && mkdir "$HOME/.config/starship"
-cp "$SCRIPT_ROOT/config/startship/starship.toml" "$HOME/.config/starship/starship.toml" 
+cp "$SCRIPT_ROOT/config/starship/starship.toml" "$HOME/.config/starship/starship.toml" 
 
 # zsh
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
