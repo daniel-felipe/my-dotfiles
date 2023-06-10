@@ -76,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR=$(which nvim)
+export PATH="$HOME/.local/bin:$HOME/.local/share/applications:$HOME/go/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export EDITOR=$(which nvim)
+
 
 # colorscript
 colorscript -r
