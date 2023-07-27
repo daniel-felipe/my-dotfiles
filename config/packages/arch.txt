@@ -36,6 +36,11 @@ go
 python
 python-pip
 obsidian
+flameshot
+bat
 make
 shell-color-scripts
 wifite
+anewer
+yay
+yarn
