@@ -20,7 +20,7 @@ echo "[${green}+${none}] Copying dotfiles"
 # startship
 printf "Startship\t"
 [ ! -d "$HOME/.config/starship/" ] && mkdir "$HOME/.config/starship"
-cp "$SCRIPT_ROOT/config/starship/starship.toml" "$HOME/.config/starship/starship.toml" 
+cp "$SCRIPT_ROOT/config/starship/starship.toml" "$HOME/.config/starship/starship.toml"
 status
 
 # zsh
@@ -41,7 +41,7 @@ status
 # i3status
 printf "i3status\t"
 if [ -f "$HOME/.config/i3/i3status.conf" ]; then
-    mv "$HOME/.config/i3/i3status.conf" "$HOME/.config/i3/i3status.conf.backup"
+    mv "$HOME/.config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status/i3status.conf.backup"
 fi
 cp "$SCRIPT_ROOT/config/i3status/i3status.conf" "$HOME/.config/i3/"
 status
@@ -51,7 +51,7 @@ printf "rofi\t"
 if [ -f "$HOME/.config/rofi/config.rasi" ]; then
     mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
 fi
-cp "$SCRIPT_ROOT/.config/rofi.config.rasi" "$HOME/.config/rofi/"
+cp "$SCRIPT_ROOT/.config/rofi/rofi.config.rasi" "$HOME/.config/rofi/"
 status
 
 echo "${green}Done!${none}"
