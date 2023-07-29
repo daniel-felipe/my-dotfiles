@@ -31,7 +31,7 @@ cp "$SCRIPT_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
 status
 
 # i3
-printf "i3\t"
+printf "i3\t\t"
 if [ -f "$HOME/.config/i3/config" ]; then
     mv "$HOME/.config/i3/config" "$HOME/.config/i3/config.backup"
 fi
@@ -51,7 +51,7 @@ printf "rofi\t"
 if [ -f "$HOME/.config/rofi/config.rasi" ]; then
     mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
 fi
-cp "$SCRIPT_ROOT/.config/rofi/rofi.config.rasi" "$HOME/.config/rofi/"
+cp "$SCRIPT_ROOT/.config/rofi/config.rasi" "$HOME/.config/rofi/"
 status
 
 echo "${green}Done!${none}"
