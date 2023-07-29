@@ -51,7 +51,7 @@ printf "rofi\t"
 if [ -f "$HOME/.config/rofi/config.rasi" ]; then
     mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
 fi
-cp "$SCRIPT_ROOT/.config/rofi/config.rasi" "$HOME/.config/rofi/"
+cp "$SCRIPT_ROOT/config/rofi/config.rasi" "$HOME/.config/rofi/"
 status
 
 echo "${green}Done!${none}"
