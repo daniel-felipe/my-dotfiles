@@ -25,7 +25,7 @@ status
 
 # zsh
 printf "Zsh\t"
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 &> /dev/null
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
 cp "$SCRIPT_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
 status
@@ -43,7 +43,7 @@ printf "i3status\t"
 if [ -f "$HOME/.config/i3/i3status.conf" ]; then
     mv "$HOME/.config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status/i3status.conf.backup"
 fi
-cp "$SCRIPT_ROOT/config/i3status/i3status.conf" "$HOME/.config/i3/"
+cp "$SCRIPT_ROOT/config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status"
 status
 
 # rofi
