@@ -31,12 +31,7 @@ set $right semicolon
 ################# Single and Dual screen
 
 # current displays
-
-# setup 1 (work)
-# exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
-
-# setup 2 (home)
-exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1 --auto
+exec --no-startup-id xrandr --output eDP-1 --right-of HDMI-1 --auto
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -61,17 +56,11 @@ exec --no-startup-id xrandr --output HDMI-1 --left-of eDP-1 --auto
 #bindsym $mod+2 workspace $ws2
 #bindsym $mod+3 workspace $ws3
 #bindsym $mod+4 workspace $ws4
-bindsym $mod+m exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
 
 # current setup
 
-# setup 1
-# set $firstMonitor eDP-1
-# set $secondMonitor HDMI-1
-
-# setup 2 (home)
-set $firstMonitor HDMI-1
-set $secondMonitor eDP-1
+set $firstMonitor eDP-1
+set $secondMonitor HDMI-1
 
 # Other Examples
 
@@ -90,16 +79,16 @@ set $secondMonitor eDP-1
 #set $firstMonitor HDMI-1
 #set $secondMonitor HDMI-2
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 1 output $secondMonitor
+workspace 2 output $secondMonitor
+workspace 3 output $secondMonitor
+workspace 4 output $secondMonitor
+workspace 5 output $secondMonitor
+workspace 6 output $firstMonitor
+workspace 7 output $firstMonitor
+workspace 8 output $firstMonitor
+workspace 9 output $firstMonitor
+workspace 10 output $firstMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -128,10 +117,10 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 ################# menu's in arcolinux
 
 # start dmenu
-bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
 # start rofi
-bindsym $mod+d exec --no-startup-id ~/.config/i3/launcher/launcher.sh
+# bindsym $mod+d exec --no-startup-id ~/.config/i3/launcher/launcher.sh
 
 # start xfce4-appfinder
 bindsym mod1+F2 exec --no-startup-id xfce4-appfinder --collapsed
@@ -414,8 +403,10 @@ exec --no-startup-id volumeicon
 exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
-#exec --no-startup-id feh --bg-fill "/home/daniel/.local/share/wallpapers/0045.jpg" &
-#exec --no-startup-id feh --bg-fill "/home/daniel/.local/share/wallpapers/0045.jpg" &
+# exec --no-startup-id feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
+# exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+exec --no-startup-id feh --bg-fill /home/daniel/.local/share/wallpapers/$(ls /home/daniel/.local/share/wallpapers/ | shuf -n 1) &
+exec --no-startup-id feh --bg-fill /home/daniel/.local/share/wallpapers/$(ls /home/daniel/.local/share/wallpapers/ | shuf -n 1) &
 # for other Arch Linux based distros
 # exec --no-startup-id feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 
@@ -447,11 +438,11 @@ bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
 bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 
 # terminal
-bindsym $mod+Return exec --no-startup-id alacritty;focus
-bindsym $mod+KP_Enter exec --no-startup-id alacritty;focus
-bindsym control+mod1+t exec --no-startup-id alacritty; focus
-bindsym control+mod1+Return exec --no-startup-id alacritty; focus
-bindsym control+mod1+KP_Enter exec --no-startup-id alacritty; focus
+bindsym $mod+Return exec --no-startup-id kitty;focus
+bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
+bindsym control+mod1+t exec --no-startup-id kitty; focus
+bindsym control+mod1+Return exec --no-startup-id kitty; focus
+bindsym control+mod1+KP_Enter exec --no-startup-id kitty; focus
 bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
 # System monitor
@@ -494,7 +485,7 @@ bindsym --release $mod+Escape exec xkill
 # Browser
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 # qwerty/azerty conflict with w
-bindsym $mod+w exec --no-startup-id firefox;focus
+bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus
 bindsym control+mod1+v exec --no-startup-id vivaldi-stable;focus
 bindsym control+mod1+g exec --no-startup-id chromium;focus
@@ -729,11 +720,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# i3lock
-# bindsym Control+Mod1+l exec "i3lock -i \home\daniel\.local\share\wallpapers\0023.jpg"
-
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c #242424\""
-
 ################# picom of i3wm                  
 
 # if you want transparency on non-focused windows, ...
@@ -750,7 +736,7 @@ bar {
 	# position top
     position bottom
 
-    # system icons
+	# system icons
     # tray_output none
     # tray_output $firstMonitor
     # tray_output $secondMonitor
@@ -797,18 +783,18 @@ bar {
 
     # i3 bar colors
     # variable border background Text
-    separator_symbol " | "
+
     colors {
-        background #2F2F2F
+        background #1e1e2e
         statusline #eeeeee
-        separator  #666666
+        separator  #1e1e2e # 666666
 
         # colorclass           border  backgr. text
         focused_workspace     #a9a9a9 #5f676a #eeeeee
         active_workspace      #a9a9a9 #5f676a #eeeeee
         inactive_workspace    #a9a9a9 #222222 #a9a9a9
         urgent_workspace      #a9a9a9 #d42121 #FFFFFF
-        }
+    }
 
     }
     ##STOP THEMING BAR
@@ -818,7 +804,7 @@ bar {
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          #6790EB #6790EB #e5e5e5 #6790EB
+    client.focused          $pink    #e5e5e5 #6790EB
     client.unfocused        #222222 #222222 #aaaaaa #222222
     client.focused_inactive #222222 #222222 #a9a9a9 #222222
     client.placeholder      #222222 #222222 #aaaaaa #222222
@@ -875,4 +861,3 @@ bar {
 # get the mouse out of the way with unclutter
 # exec --no-startup-id unclutter
 
-exec --no-startup-id nitrogen --restore
