@@ -35,7 +35,7 @@ printf "i3\t\t"
 if [ -f "$HOME/.config/i3/config" ]; then
     mv "$HOME/.config/i3/config" "$HOME/.config/i3/config.backup"
 fi
-cp "$SCRIPT_ROOT/config/i3" "$HOME/.config/"
+cp -R "$SCRIPT_ROOT/config/i3" "$HOME/.config/"
 status
 
 # i3status
@@ -51,7 +51,7 @@ printf "rofi\t"
 if [ -f "$HOME/.config/rofi/config.rasi" ]; then
     mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
 fi
-cp "$SCRIPT_ROOT/config/rofi/config.rasi" "$HOME/.config/rofi/"
+cp -R "$SCRIPT_ROOT/config/rofi" "$HOME/.config/rofi"
 status
 
 echo "${green}Done!${none}"
