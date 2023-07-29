@@ -35,7 +35,7 @@ printf "i3\t\t"
 if [ -f "$HOME/.config/i3/config" ]; then
     mv "$HOME/.config/i3/config" "$HOME/.config/i3/config.backup"
 fi
-cp -R "$SCRIPT_ROOT/config/i3" "$HOME/.config/"
+cp "$SCRIPT_ROOT/config/i3" "$HOME/.config/"
 status
 
 # i3status
