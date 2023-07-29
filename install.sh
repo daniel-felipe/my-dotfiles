@@ -47,7 +47,7 @@ cp "$SCRIPT_ROOT/config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status"
 status
 
 # rofi
-printf "rofi\t"
+printf "rofi\t\t"
 if [ -f "$HOME/.config/rofi/config.rasi" ]; then
     mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
 fi
