@@ -17,12 +17,6 @@ status() {
 
 echo "[${green}+${none}] Copying dotfiles"
 
-# startship
-printf "Startship\t"
-[ ! -d "$HOME/.config/starship/" ] && mkdir "$HOME/.config/starship"
-cp "$SCRIPT_ROOT/config/starship/starship.toml" "$HOME/.config/starship/starship.toml"
-status
-
 # zsh
 printf "Zsh\t"
 zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 &> /dev/null
@@ -30,28 +24,30 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 cp "$SCRIPT_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
 status
 
-# i3
-printf "i3\t\t"
-if [ -f "$HOME/.config/i3/config" ]; then
-    mv "$HOME/.config/i3/config" "$HOME/.config/i3/config.backup"
-fi
-cp -R "$SCRIPT_ROOT/config/i3" "$HOME/.config/"
+# hyprland
+printf "Hypr\t\t"
+cp -R "$SCRIPT_ROOT/config/hypr" "$HOME/.config/"
 status
 
 # i3status
-printf "i3status\t"
-if [ -f "$HOME/.config/i3/i3status.conf" ]; then
-    mv "$HOME/.config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status/i3status.conf.backup"
-fi
-cp "$SCRIPT_ROOT/config/i3/i3status/i3status.conf" "$HOME/.config/i3/i3status"
+printf "Waybar\t"
+cp "$SCRIPT_ROOT/waybar" "$HOME/.config/"
 status
 
 # rofi
-printf "rofi\t\t"
-if [ -f "$HOME/.config/rofi/config.rasi" ]; then
-    mv "$HOME/.config/rofi/config.rasi" "$HOME/.config/rofi/config.rasi.backup"
-fi
-cp -R "$SCRIPT_ROOT/config/rofi" "$HOME/.config/rofi"
+printf "Wofi\t\t"
+cp -R "$SCRIPT_ROOT/config/wofi" "$HOME/.config/"
 status
 
-echo "${green}Done!${none}"
+# rofi
+printf "Swaylock\t\t"
+cp -R "$SCRIPT_ROOT/config/swaylock" "$HOME/.config/"
+status
+
+# kitty 
+printf "Kitty\t\t"
+cp -R "$SCRIPT_ROOT/config/kitty" "$HOME/.config/"
+status
+
+echo "[${green}+${none}]All done!"
+
