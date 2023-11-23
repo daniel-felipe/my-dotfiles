@@ -58,4 +58,7 @@ status
 printf "kitty\t\t"
 cp -R "$SCRIPT_ROOT/config/kitty/" "$HOME/.config/"
 
+# wallpapers
+cp -R "$SCRIPT_ROOT/assets/wallpapers" "$HOME/.local/share/wallpapers/"
+
 echo "${green}Done!${none}"
