@@ -54,4 +54,8 @@ fi
 cp -R "$SCRIPT_ROOT/config/rofi" "$HOME/.config/rofi"
 status
 
+# kitty
+printf "kitty\t\t"
+cp -R "$SCRIPT_ROOT/config/kitty/" "$HOME/.config/"
+
 echo "${green}Done!${none}"
